@@ -1,0 +1,41 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block titulo %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=1">
+
+
+{% block estilo %}{% endblock %}
+
+</head>
+
+<body class="main_class">
+    <header class="cabeçalho">
+        <section class="topo">
+            <div>
+                <h1 class="uber"> <a href="{% url 'intro' %}">Uberlândia</a></h1>
+            </div>
+
+                <h1 class="outras_cidades"><a href='https://www.youtube.com/watch?v=LNXDORibqkE'>Conheça outras cidades de MG</a></h1>
+            </div>
+        </section>
+    </header>
+
+
+     <main class="main-class"> 
+
+    <div class="nome">{% block nome %}{% endblock %}</div> 
+    <div class="cidade">{% block cidade %}{% endblock %}</div>
+    </main>  
+
+    <footer class="final"> 
+        <p>Precisa de algo melhor? Clique <a href="https://www.youtube.com/watch?v=0BUXyxS6wvs">aqui</a>!</p>
+        <p>Criado por Loran S. Barros</p>
+    </footer>
+</body>
+</html>

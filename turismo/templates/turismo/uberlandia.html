@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v=1">
+
+{% block titulo %}
+{{ nome }}
+{% endblock %}
+
+{% block estilo %}
+<style>
+    .central {
+    display: block;
+    position: center;
+    margin: 0 auto;
+    border: 5px solid black;
+    border-radius: 9px;
+    }
+    .intro {
+    display: block;
+    margin-top: 50px;
+}
+
+.intro div {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.intro h3 a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.intro h3 a:hover {
+    color: #007BFF;
+}
+
+.intro h4 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.imagem_turistica {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 12px;
+    background-color: #ffe1bf;
+    transform: rotateZ(-5deg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+
+</style>
+{% endblock %}
+
+{% block nome %}
+{{ nome }}
+
+{% endblock %}
+
+{% block cidade %}
+
+<p class="texto_p">{{ descrição }}</p>
+
+<img class='central'src="{% static 'imagens/'%}{{imagem}}" alt="Imagem dinâmica" width="800" height="500">
+
+{% if "Já pensou em visitar Uberlândia?" in descrição %}
+
+<section class="intro"> 
+
+    <div>
+        <h3><a href="{% url 'sabia' %}"> Conheça o parque do sabiá </a></h3>
+        <h4>O parque mais popular da cidade com direito a água de coco!</h4>
+        <img class='imagem_turistica' src="{% static 'imagens/Parque do Sabiá.png' %}" alt="Imagem do parque do pombo">
+    </div>
+
+    <div>
+        <h3><a href="{% url 'siquierolli' %}"> Conheça o parque siqueirolli </a></h3>
+        <h4>O parque que somente turista visita!</h4>
+        <img class='imagem_turistica' src="{% static 'imagens/Parque Siquierolli.jpg' %}", alt="Imagem do parque siqueirolli">
+    </div>
+
+    <div>
+        <h3><a href="{% url 'sucupira' %}"> Conheça a cachoeira sucupira </a></h3>
+        <h4>Quase uma praia, somente em Uberlândia!</h4>
+        <img class="imagem_turistica" src="{% static 'imagens/Cachoeira Sucupira.jpg' %}" alt="Praia de Uberlândia">
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% endblock %}
