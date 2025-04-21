@@ -1,1 +1,1 @@
-web: gunicorn Uberlandia.wsgi
+web: gunicorn uberlandia.wsgi
